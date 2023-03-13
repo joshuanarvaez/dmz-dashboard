@@ -25,16 +25,17 @@ export default {
       },
       {
         name: 'image',
-        type: 'image',
-        options : {
-          hotspot: true,
-        },
         title: 'Images',
+        type: 'array',
+        of: [{ type: 'image' }],
+        options: {
+          hotspot: true,
+        }
       },
       {
-        name: 'loot',
+        name: 'lootRating',
         type: 'string',
-        title: 'Potential Loot'
+        title: 'Loot Rating'
       }
     ]
   }

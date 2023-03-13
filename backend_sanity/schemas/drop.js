@@ -20,11 +20,12 @@ export default {
       },
       {
         name: 'image',
-        type: 'image',
-        options : {
-          hotspot: true,
-        },
         title: 'Images',
-      }
+        type: 'array',
+        of: [{ type: 'image' }],
+        options: {
+          hotspot: true,
+        }
+      },
     ]
   }
