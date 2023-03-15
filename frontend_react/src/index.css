@@ -4,12 +4,20 @@
   --font-base: 'Jost', sans-serif;
   
   --primary-color: #31322b;
-  --secondary-color: #1989AC;
+  --green-color: #7cdf13;
   --black-color: #030303;
   --lightGray-color: #afafb2;
   --gray-color: #36372e;
   --white-color: #ffffff; 
   --yellow-color: #b3b137;
+
+  --logo-width: 150px;
+  --logo-height: 80px;
+
+  @media screen and (min-width: 2000px) {
+    --logo-width: 180px;
+    --logo-height: 100px;
+  }
 
 }
 

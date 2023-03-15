@@ -1,0 +1,19 @@
+.app__dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.app__dashboard-stats {
+  width: 30%;
+  height: 100%;
+  background-color: #f1f1f1;
+}
+
+.app__dashboard-map {
+  width: 70%;
+  height: 100%;
+  // background-image: url('../../assets/al-mazrah.jpg');
+}
