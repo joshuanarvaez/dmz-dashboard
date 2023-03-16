@@ -31,7 +31,7 @@ const Maps = () => {
         </button>
       ))}
       {selectedMap && selectedMap.image && (
-        <div className="app__dashboard-map__image" style={{ backgroundImage: `url(${urlFor(selectedMap.image.asset).url()})` }} />
+        <div className="app__dashboard-map__image" style={{ backgroundImage: `url(${urlFor(selectedMap.image).url()})` }} />
       )}
     </div>
   )
