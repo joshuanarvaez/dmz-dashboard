@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { urlFor, client } from '../../client';
 
 import './Maps.scss';
+import { urlFor, client } from '../../client';
 
 const Maps = () => {
   const [maps, setMaps] = useState([]);
@@ -15,9 +15,8 @@ const Maps = () => {
       .then((data) => {
         setMaps(data);
         setSelectedMap(data[0]);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+      });
+  }, [])
 
   const handleMapClick = (map) => {
     setSelectedMap(map);
@@ -34,7 +33,7 @@ const Maps = () => {
         <div className="app__dashboard-map__image" style={{ backgroundImage: `url(${urlFor(selectedMap.image).url()})` }} />
       )}
     </div>
-  );
-};
+  )
+}
 
 export default Maps;
