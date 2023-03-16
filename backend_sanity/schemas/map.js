@@ -16,11 +16,5 @@ export default {
         hotspot: true,
       },
     },
-    {
-      name: '_id',
-      type: 'string',
-      title: 'ID',
-      hidden: true,
-    },
   ],
 }

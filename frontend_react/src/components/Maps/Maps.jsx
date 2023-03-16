@@ -13,6 +13,7 @@ const Maps = () => {
 
     client.fetch(query)
       .then((data) => {
+        console.log(data);
         setMaps(data);
         setSelectedMap(data[0]);
       });
