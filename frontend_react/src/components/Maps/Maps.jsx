@@ -9,13 +9,16 @@ const Maps = () => {
   const [selectedMap, setSelectedMap] = useState(null);
 
   useEffect(() => {
-    const query = '*[_type == "map"]';
+    const query = '*[_type == "map"]{name, imgUrl}';
 
     client.fetch(query)
       .then((data) => {
         console.log(data);
         setMaps(data);
         setSelectedMap(data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, [])
 
@@ -30,8 +33,11 @@ const Maps = () => {
           {map.name}
         </button>
       ))}
-      {selectedMap && selectedMap.image && (
-        <div className="app__dashboard-map__image" style={{ backgroundImage: `url(${urlFor(selectedMap.image).url()})` }} />
+      {selectedMap && selectedMap.imgUrl && (
+        <div
+          className="app__dashboard-map__image"
+          style={{ backgroundImage: `url(${urlFor(selectedMap.imgUrl)})` }}
+        />
       )}
     </div>
   )

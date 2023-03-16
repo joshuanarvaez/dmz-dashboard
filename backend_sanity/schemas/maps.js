@@ -1,17 +1,17 @@
 export default {
-  name: 'map',
+  name: 'maps',
   type: 'document',
-  title: 'Map',
+  title: 'Maps',
   fields: [
     {
-      name: 'name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
-      title: 'Map Name',
     },
     {
-      name: 'image',
+      name: 'imgUrl',
+      title: 'ImgUrl',
       type: 'image',
-      title: 'Map Image',
       options: {
         hotspot: true,
       },
