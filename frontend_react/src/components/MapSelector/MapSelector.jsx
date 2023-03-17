@@ -1,30 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './MapSelector.scss';
 import { urlFor, client } from '../../client';
 
-const MapSelector = ({ onMapSelect }) => {
-  const [maps, setMaps] = useState([]);
-  const [selectedMap, setSelectedMap] = useState(null);
-
+export const MapSelector = ({ maps, setMaps }) => {
   useEffect(() => {
-    const query = '*[_type == "map"]{name, image}';
+    const query = '*[_type == "map"]{title, image}';
 
     client.fetch(query)
       .then((data) => {
         setMaps(data);
-        if (data.length > 0) {
-          setSelectedMap(data[0]);
-        }
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [setMaps]);
 
   const handleMapClick = (map) => {
-    setSelectedMap(map);
-    onMapSelect(map);
+    setMaps((prevMaps) => prevMaps.map((m) => (m.title === map.title ? { ...m, selected: true } : { ...m, selected: false })));
   };
 
   return (
@@ -32,20 +25,19 @@ const MapSelector = ({ onMapSelect }) => {
       {maps.map((map) => (
         <button
           key={map._id}
-          className={`map-selector__button ${map === selectedMap ? 'active' : ''}`}
+          className={`map-selector__button ${map.selected ? 'active' : ''}`}
           onClick={() => handleMapClick(map)}
         >
           {map.title}
         </button>
       ))}
-      {selectedMap && selectedMap.image && (
+      {maps.find((map) => map.selected)?.image && (
         <div
           className="map-selector__image"
-          style={{ backgroundImage: `url(${urlFor(selectedMap.image)})` }}
+          style={{ backgroundImage: `url(${urlFor(maps.find((map) => map.selected).image)})` }}
         />
       )}
     </div>
   );
 };
 
-export default MapSelector;

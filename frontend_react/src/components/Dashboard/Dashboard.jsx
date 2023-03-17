@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import './Dashboard.scss';
-import { urlFor } from '@sanity/image-url';
+import { urlFor } from '../../client';
 
-import MapSelector from '../MapSelector/MapSelector';
+import { MapSelector } from '../MapSelector/MapSelector';
 
 const Dashboard = () => {
-  const [selectedMap, setSelectedMap] = useState(null);
-
-  const handleMapSelect = (map) => {
-    setSelectedMap(map);
-  };
+  const [maps, setMaps] = useState([]);
 
   return (
     <div className="app__dashboard">
@@ -19,11 +15,11 @@ const Dashboard = () => {
       {window.location.pathname.startsWith('/dashboard') && (
         <div className="app__dashboard-map">
           {/* Your interactive map component goes here */}
-          <MapSelector onMapSelect={handleMapSelect} />
-          {selectedMap && (
+          <MapSelector maps={maps} setMaps={setMaps} />
+          {maps.find((map) => map.selected) && (
             <div>
-              <h2>{selectedMap.title}</h2>
-              <img src={urlFor(selectedMap.image).url()} alt={selectedMap.title} />
+              <h2>{maps.find((map) => map.selected).title}</h2>
+              <img src={urlFor(maps.find((map) => map.selected).image).url()} alt={maps.find((map) => map.selected).title} />
             </div>
           )}
         </div>
