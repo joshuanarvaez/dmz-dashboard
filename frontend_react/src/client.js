@@ -1,3 +1,4 @@
+// eslint-disable-next-line jsx-a11y/anchor-is-valid
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
