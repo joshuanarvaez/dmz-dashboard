@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dashboard.scss';
 
-import Maps from '../../components/Maps/Maps';
+import MapSelector from '../MapSelector/MapSelector';
 
 const Dashboard = () => {
   return (
@@ -12,7 +12,7 @@ const Dashboard = () => {
       {window.location.pathname.startsWith('/dashboard') && (
         <div className="app__dashboard-map">
           {/* Your interactive map component goes here */}
-          <Maps />
+          <MapSelector />
         </div>
       )}
     </div>

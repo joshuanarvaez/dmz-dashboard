@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
-import { images } from '../../constants';
+import { images } from '../../assets';
 import './Navbar.scss';
 
 const Navbar = () => {

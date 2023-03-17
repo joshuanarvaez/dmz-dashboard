@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-
-import './Maps.scss';
+import './MapSelector.scss';
 import { urlFor, client } from '../../client';
 
-const Maps = () => {
+const MapSelector = () => {
   const [maps, setMaps] = useState([]);
   const [selectedMap, setSelectedMap] = useState(null);
 
@@ -43,4 +41,4 @@ const Maps = () => {
   )
 }
 
-export default Maps;
+export default MapSelector;
