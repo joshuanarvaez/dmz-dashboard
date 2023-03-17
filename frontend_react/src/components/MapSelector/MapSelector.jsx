@@ -8,12 +8,14 @@ const MapSelector = ({ onMapSelect }) => {
   const [selectedMap, setSelectedMap] = useState(null);
 
   useEffect(() => {
-    const query = '*[_type == "map"]{name, imgUrl}';
+    const query = '*[_type == "map"]{name, image}';
 
     client.fetch(query)
       .then((data) => {
         setMaps(data);
-        setSelectedMap(data[0]);
+        if (data.length > 0) {
+          setSelectedMap(data[0]);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -36,10 +38,10 @@ const MapSelector = ({ onMapSelect }) => {
           {map.name}
         </button>
       ))}
-      {selectedMap && selectedMap.imgUrl && (
+      {selectedMap && selectedMap.image && (
         <div
           className="map-selector__image"
-          style={{ backgroundImage: `url(${urlFor(selectedMap.imgUrl)})` }}
+          style={{ backgroundImage: `url(${urlFor(selectedMap.image)})` }}
         />
       )}
     </div>

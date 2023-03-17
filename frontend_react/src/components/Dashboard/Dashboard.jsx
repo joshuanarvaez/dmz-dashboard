@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.scss';
+import { urlFor } from '../../client';
+
 
 import MapSelector from '../MapSelector/MapSelector';
 
@@ -22,7 +24,7 @@ const Dashboard = () => {
           {selectedMap && (
             <div>
               <h2>{selectedMap.name}</h2>
-              <img src={selectedMap.imgUrl} alt={selectedMap.name} />
+              <img src={urlFor(selectedMap.image)} alt={selectedMap.name} />
             </div>
           )}
         </div>
