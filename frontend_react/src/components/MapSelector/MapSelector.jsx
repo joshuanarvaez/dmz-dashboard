@@ -35,7 +35,7 @@ const MapSelector = ({ onMapSelect }) => {
           className={`map-selector__button ${map === selectedMap ? 'active' : ''}`}
           onClick={() => handleMapClick(map)}
         >
-          {map.name}
+          {map.title}
         </button>
       ))}
       {selectedMap && selectedMap.image && (

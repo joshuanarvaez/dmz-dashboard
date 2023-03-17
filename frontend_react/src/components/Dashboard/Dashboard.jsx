@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Dashboard.scss';
-import { urlFor } from '../../client';
-
+import { urlFor } from '@sanity/image-url';
 
 import MapSelector from '../MapSelector/MapSelector';
 
@@ -23,8 +22,8 @@ const Dashboard = () => {
           <MapSelector onMapSelect={handleMapSelect} />
           {selectedMap && (
             <div>
-              <h2>{selectedMap.name}</h2>
-              <img src={urlFor(selectedMap.image)} alt={selectedMap.name} />
+              <h2>{selectedMap.title}</h2>
+              <img src={urlFor(selectedMap.image).url()} alt={selectedMap.title} />
             </div>
           )}
         </div>
